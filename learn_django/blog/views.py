@@ -8,7 +8,7 @@ from .serializers import UserSerializer
 
 
 
-class UserApiList(generics.ListCreateAPIView):
+class UserAPIList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 

@@ -7,10 +7,14 @@ from .models import User
 from .serializers import UserSerializer
 
 
+
+class UserApiList(generics.ListCreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
 class UserAPIView(APIView):
     def get(self, request):
         query = User.objects.all()
-
         return Response({'users': UserSerializer(query, many=True).data})
 
     def post(self, request):
